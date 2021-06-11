@@ -37,7 +37,7 @@ router.get('/issues/assignee/:accountId', function (req, res) {
       method: 'GET',
       headers: {
         Authorization: `Basic ${Buffer.from(
-          config.get('jira_username') + ':' + config.get('jira_password')
+          config.get('jiraUsername') + ':' + config.get('jiraPassword')
         ).toString('base64')}`,
         Accept: 'application/json',
       },
@@ -61,7 +61,7 @@ router.get('/issues/project/:id', function (req, res) {
       method: 'GET',
       headers: {
         Authorization: `Basic ${Buffer.from(
-          config.get('jira_username') + ':' + config.get('jira_password')
+          config.get('jiraUsername') + ':' + config.get('jiraPassword')
         ).toString('base64')}`,
         Accept: 'application/json',
       },
@@ -85,7 +85,7 @@ router.get('/issues/status/:name', function (req, res) {
       method: 'GET',
       headers: {
         Authorization: `Basic ${Buffer.from(
-          config.get('jira_username') + ':' + config.get('jira_password')
+          config.get('jiraUsername') + ':' + config.get('jiraPassword')
         ).toString('base64')}`,
         Accept: 'application/json',
       },
