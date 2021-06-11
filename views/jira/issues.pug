@@ -1,0 +1,48 @@
+extends ../layout
+
+block content
+	h3= title
+	p= subTitle
+	hr
+
+	if data != null
+		h6 Total: #{data.total} issues
+	else
+		h6 Not found!
+
+	table.table.table-hover.table-bordered
+		caption List of issues
+		thead
+			tr
+				th T
+				th Key
+				th Summary
+				th Project
+				th Assignee
+				th Creator
+				th P
+				th Status
+				//- th Created
+				//- th Updated
+		each issue in data.issues
+			//- tr(class=issue.fields.status.name == 'To Do' ? 'table-light' : issue.fields.status.name == 'In Progress' ? 'table-warning' : issue.fields.status.name == 'Done' ? 'table-success' : 'default')
+			tr
+				td
+					img(src=issue.fields.issuetype.iconUrl, data-bs-toggle='tooltip',  data-bs-placement='right', title=issue.fields.issuetype.name)
+				td
+					a(href='https://ezactivevn.atlassian.net/browse/'+issue.key, target='_blank', class='***text-decoration-none***') #{issue.key}
+				td= issue.fields.summary
+				td
+					a(href='/jira/issues/project/'+issue.fields.project.id, class='***text-decoration-none***') #{issue.fields.project.name}
+				if issue.fields.assignee
+					td
+						a(href='/jira/issues/assignee/'+issue.fields.assignee.accountId, class='***text-decoration-none***') #{issue.fields.assignee.displayName}
+				else
+					td= 'Unassigned'
+				td= issue.fields.creator.displayName
+				td
+					img(src=issue.fields.priority.iconUrl, data-bs-toggle='tooltip',  data-bs-placement='right', title=issue.fields.priority.name)
+				td
+					a(href='/jira/issues/status/'+issue.fields.status.name, class='***text-decoration-none***') #{issue.fields.status.name}
+				//- td= issue.fields.created
+				//- td= issue.fields.updated

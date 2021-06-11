@@ -1,7 +1,28 @@
 doctype html
 html
   head
-    title= title
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width', initial-scale=1)
+    meta(name='description', content='EZ Acitve Vietnam')
+    meta(name='author', content='Le Quyet Tien')
+    title #{title} - EZ Active VN
+
+    //- Bootstrap core CSS
+    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
+
+    //- Favicons
+    link(rel='icon', href='/images/favicon.ico')
   body
-    block content
+    header
+      div(class='px-3 py-2 bg-dark text-white')
+        div(class='container')
+          div(class='d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start')
+            a(class='d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none', href='/')
+              img(src='https://www.ezactive.com/wp-content/themes/Ez-Active/images/logo.png', alt='', width='auto', height='40')
+            ul(class='nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small')
+              li
+                a(class='nav-link text-white', href='/jira/issues') Issues
+    main
+      div(class='container my-md-4')
+        block content
