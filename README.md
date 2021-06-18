@@ -39,3 +39,12 @@ $ git push -u origin main
 ### 3.3. Open the app -> Select tab `Deploy` -> Select `Github` in `Deployment method` -> Connect to repository on Github -> Click `Deploy Branch` in `Manual deploy`
 
 ### 3.4. Open the app https://ezactivevn.herokuapp.com/
+
+## How to run
+
+Set Jira API Account
+
+```cmd
+set jira_username=YOUR_USERNAME
+set jira_password=YOUR_PASSWORD
+```

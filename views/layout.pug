@@ -11,6 +11,9 @@ html
     link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
 
+    //- Bootstrap core JS
+    script(src="/javascripts/bootstrap.bundle.min.js") 
+
     //- Favicons
     link(rel='icon', href='/images/favicon.ico')
   body
@@ -22,7 +25,7 @@ html
               img(src='https://www.ezactive.com/wp-content/themes/Ez-Active/images/logo.png', alt='', width='auto', height='40')
             ul(class='nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small')
               li
-                a(class='nav-link text-white', href='/jira/issues') Issues
+                a(class='nav-link text-white', href='/sprint') Sprint Backlog
     main
       div(class='container my-md-4')
         block content
