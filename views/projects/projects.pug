@@ -1,0 +1,29 @@
+extends ../layout
+
+block content
+	h3= title
+	p= subTitle
+	hr
+
+	if data != null
+		h6 Total: #{data.total} projects
+	else
+		h6 Not found!
+
+	table.table.table-hover.table-bordered
+		caption List of projects
+		thead
+			tr
+				//- th T
+				th Key
+				th Name
+				th Details
+		each project in data.values
+			tr
+				//- td
+				//- 	img(src=project.avatarUrls.48x48, data-bs-toggle='tooltip',  data-bs-placement='right', title=project.name)
+				td
+					a(href='https://ezactivevn.atlassian.net/browse/'+project.key, target='_blank', class='***text-decoration-none***') #{project.key}
+				td= project.name
+				td
+					a(href='/projects/'+project.key+'/versions', class='***text-decoration-none***') Versions

@@ -1,0 +1,34 @@
+extends ../layout
+
+block content
+	h3= title
+	p= subTitle
+	hr
+
+	if data != null
+		h6 Total: #{data.total} versions
+	else
+		h6 Not found!
+
+	table.table.table-hover.table-bordered
+		caption List of versions
+		thead
+			tr
+				th Version
+				th Description
+				th(class="text-center") Project
+				th(class="text-center") Release date
+				th Issues
+		each version in data
+			tr
+				td
+					a(href=`https://ezactivevn.atlassian.net/projects/${projectKey}/versions/${version.id}`, target='_blank', class='***text-decoration-none***') #{version.name}
+				td= version.description
+				td(class="text-center")
+					a(href='/sprint/project/'+version.projectId, class='***text-decoration-none***') #{projectKey}
+				if (version.released)
+					td(class="text-center")= version.releaseDate
+				else 
+					td
+				td
+					a(href='/projects/'+projectKey+'/versions/'+version.name+'/issues', target='_self', class='***text-decoration-none***') Issues
